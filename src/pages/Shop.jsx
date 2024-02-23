@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import getStoreItems from "../utils/getItems";
 import ItemCard from "../components/shop/ItemCard";
-import "../assets/css/Shop.css";
 
 function Shop() {
   const [items, setItems] = useState([]);
@@ -12,7 +11,7 @@ function Shop() {
 
   return (
     <>
-      <Navbar />
+      <Navbar cart={true} />
       <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 standard-width">
         {items.map((item) => {
           return (
