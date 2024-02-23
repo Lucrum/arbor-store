@@ -1,4 +1,4 @@
-import CardColumn from "./CardColumn";
+import CardColumn from "../CardColumn";
 
 function CallToAction() {
   const dogsOne = [

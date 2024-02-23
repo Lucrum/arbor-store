@@ -1,10 +1,30 @@
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
+import getStoreItems from "../utils/getItems";
+import ItemCard from "../components/shop/ItemCard";
+import "../assets/css/Shop.css";
 
 function Shop() {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    getStoreItems(setItems);
+  }, []);
+
   return (
     <>
       <Navbar />
-      <h1>Shop!</h1>
+      <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 standard-width">
+        {items.map((item) => {
+          return (
+            <ItemCard
+              key={item.id}
+              title={item.title}
+              price={item.price.toFixed(2)}
+              imageUrl={item.image}
+            />
+          );
+        })}
+      </div>
     </>
   );
 }

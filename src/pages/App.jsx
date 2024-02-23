@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 import "../assets/css/App.css";
-import CallToAction from "../components/CallToAction";
-import LogoLarge from "../components/LogoLarge";
+import CallToAction from "../components/index/CallToAction";
 import Navbar from "../components/Navbar";
 
 function App() {
