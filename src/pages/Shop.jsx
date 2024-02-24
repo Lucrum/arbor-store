@@ -17,6 +17,7 @@ function Shop() {
           return (
             <ItemCard
               key={item.id}
+              id={item.id}
               title={item.title}
               price={item.price.toFixed(2)}
               imageUrl={item.image}
