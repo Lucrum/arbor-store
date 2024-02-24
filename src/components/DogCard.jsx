@@ -5,7 +5,7 @@ function DogCard({ name, imgSrc, imgAlt, desc }) {
     <div className="p-8 rounded bg-slate-300">
       <img src={imgSrc} alt={imgAlt} />
       <div className="flex justify-center">
-        <h3 className="italic text-xl rounded-md px-3 mt-3 bg-stone-400">
+        <h3 className="italic text-xl rounded-md px-3 mt-3 bg-stone-200">
           {name}
         </h3>
       </div>
