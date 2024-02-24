@@ -37,12 +37,14 @@ function CallToAction() {
   ];
   return (
     <div className="mb-10">
-      <span>
-        With every purchase, 100% of all proceeds go to telling all dogs they
-        are good boys.
-      </span>
-      <br />
-      <span>This is definitely not an excuse to show off more dogs.</span>
+      <div className="flex flex-col m-5">
+        <span>
+          With every purchase, 100% of all proceeds go to telling all dogs they
+          are good boys.
+        </span>
+        <span>This is definitely not an excuse to show off more dogs.</span>
+      </div>
+
       <div className="flex gap-5 flex-wrap md:flex-nowrap">
         <CardColumn dogs={dogsOne} />
         <CardColumn dogs={dogsTwo} />
