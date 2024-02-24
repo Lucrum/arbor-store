@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import getStoreItems from "../utils/getItems";
 import ItemCard from "../components/shop/ItemCard";
+import getCartSize from "../utils/getCartSize";
 
 function Shop() {
   const [items, setItems] = useState([]);
@@ -11,16 +12,19 @@ function Shop() {
   }, []);
 
   const addToCart = (id, amount) => {
-    if (id in cart) {
-      setCart({
-        ...cart,
-        [id]: cart[id] + amount,
-      });
-    } else {
-      setCart({
-        ...cart,
-        [id]: amount,
-      });
+    if (getCartSize(cart) < 5000) {
+      // arbitrary cart size limit
+      if (id in cart) {
+        setCart({
+          ...cart,
+          [id]: cart[id] + amount,
+        });
+      } else {
+        setCart({
+          ...cart,
+          [id]: amount,
+        });
+      }
     }
   };
 
@@ -41,6 +45,10 @@ function Shop() {
           );
         })}
       </div>
+      <span>
+        Checkout functionality implemented never. Shop to your heart&apos;s
+        content!
+      </span>
     </>
   );
 }
