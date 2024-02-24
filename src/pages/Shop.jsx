@@ -5,13 +5,28 @@ import ItemCard from "../components/shop/ItemCard";
 
 function Shop() {
   const [items, setItems] = useState([]);
+  const [cart, setCart] = useState({});
   useEffect(() => {
     getStoreItems(setItems);
   }, []);
 
+  const addToCart = (id, amount) => {
+    if (id in cart) {
+      setCart({
+        ...cart,
+        [id]: cart[id] + amount,
+      });
+    } else {
+      setCart({
+        ...cart,
+        [id]: amount,
+      });
+    }
+  };
+
   return (
     <>
-      <Navbar cart={true} />
+      <Navbar cart={cart} />
       <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 standard-width">
         {items.map((item) => {
           return (
@@ -21,6 +36,7 @@ function Shop() {
               title={item.title}
               price={item.price.toFixed(2)}
               imageUrl={item.image}
+              addToCart={addToCart}
             />
           );
         })}

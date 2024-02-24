@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 function Counter({ id, addToCart }) {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(1);
 
   const decrement = () => {
     if (amount > 0) {
@@ -36,7 +36,7 @@ function Counter({ id, addToCart }) {
   };
 
   const preventPasteNegative = (e) => {
-    const clipboardData = e.clipboardData || window.clipboardData;
+    const clipboardData = e.clipboardData || window.clipboardData; // window.clipboardData may be incorrect
     const pastedData = parseInt(clipboardData.getData("text"));
 
     if (pastedData < 0) {
