@@ -47,7 +47,7 @@ function Counter({ id, addToCart }) {
   return (
     <div>
       <div className="flex">
-        <button className="bg-gray-100 p-2" onClick={decrement}>
+        <button className="bg-gray-100 p-2 rounded-lg" onClick={decrement}>
           -
         </button>
         <input
@@ -62,11 +62,16 @@ function Counter({ id, addToCart }) {
           value={amount.toString()}
           onChange={enterAmount}
         />
-        <button className="bg-gray-100 p-2" onClick={increment}>
+        <button className="bg-gray-100 p-2 rounded-lg" onClick={increment}>
           +
         </button>
       </div>
-      <button onClick={() => addToCart(id, amount)}>Add to Cart</button>
+      <button
+        className="bg-orange-300 w-full rounded-lg mt-2"
+        onClick={() => addToCart(id, amount)}
+      >
+        Add to Cart
+      </button>
     </div>
   );
 }
