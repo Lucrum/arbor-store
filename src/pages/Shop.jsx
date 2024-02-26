@@ -31,6 +31,7 @@ function Shop() {
   return (
     <>
       <Navbar cart={cart} />
+      <h2 className="text-5xl font-bold m-8">Best Sellers</h2>
       <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 standard-width">
         {items.map((item) => {
           return (
