@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
-import getStoreItems from "../utils/getItems";
+import { getStoreItems } from "../utils/storeApi";
 import ItemCard from "../components/shop/ItemCard";
 import getCartSize from "../utils/getCartSize";
+import Navbar from "../components/Navbar";
 
 function Shop() {
   const [items, setItems] = useState([]);
   const [cart, setCart] = useState({});
   useEffect(() => {
-    getStoreItems(setItems);
+    const getData = async () => {
+      const data = await getStoreItems();
+      setItems(data);
+    };
+    getData();
   }, []);
 
   const addToCart = (id, amount) => {
