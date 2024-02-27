@@ -16,7 +16,6 @@ describe("Counter", () => {
     const user = userEvent.setup();
     render(<Counter id={1} addToCart={onClick} />);
     const plusButton = screen.getByRole("button", { name: "+" });
-    const minusButton = screen.getByRole("button", { name: "-" });
     const amount = screen.getByRole("textbox", { id: "amount" });
     await user.click(plusButton);
     expect(amount.value).toMatch("2");
